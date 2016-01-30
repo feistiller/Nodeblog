@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+        <html>
+            <head>
+                <meta charset="UTF-8"/>
+                <title>BLOG</title>
+                <link rel="stylesheet" href="/stylesheets/style.css">
+
+            </head>
+<body>
+<header><h1><%= title%></h1></header>
+<nav>
+    <span><a title="Home" href="/">Home</a> </span>
+    <span><a title="Archive" href="/archive">Archive</a> </span>
+    <% if(user){%>
+    <span><a title="upload" href="/upload">upload</a> </span>
+    <span><a title="Write" href="/post">post</a> </span>
+    <span><a title="Logout" href="/logout">logout</a> </span>
+    <% }else{%>
+    <span><a title="Login" href="/login">login</a> </span>
+    <span><a title="register" href="/reg">register</a> </span>
+    <% }%>
+
+    <span><form action="/search" method="GET"><input type="text" name="keyword" placeholder="SEARCH" class="search"/> </form> </span>
+
+</nav>
+<article>
+    <%if(success){%>
+    <div><%= success%></div>
+    <% }%>
+    <%if(error){%>
+    <div><%= error%></div>
+    <% }%>
+

@@ -1,0 +1,20 @@
+<%- include header %>
+<% posts.forEach(function(post, index){ %>
+<p><h2><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a></h2>
+
+<a href="/u/<%= post.name %>"><img src="<%= post.head %>" class="r_head"/> </a>
+</p>
+<p class="info">
+    writer:<a href="/u/<%= post.name %>"><%= post.name %></a>|date:<%= post.time.minute %>
+    tags:
+    <% post.tags.forEach(function (tag, index) { %>
+    <% if(tag){ %>
+    <a class="tag" href="/tag/<%= tag %>"><%= tag %></a>
+    <% } %>
+    <% }) %>
+</p>
+<p class="info">read:<%= post.pv %>|Comment<%= post.comments.length %></p>
+<p><%- post.post %></p>
+<% }) %>
+<%- include paging %>
+<%- include footer %>
